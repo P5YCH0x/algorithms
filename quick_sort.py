@@ -1,27 +1,24 @@
-from cmath import pi
 import random
 
-nums = [random.randint(1,20) for i in range(0, 10)]
+nums = [random.randint(1,20) for i in range(0, 20)]
 
 print(nums)
-print(len(nums))
 
 def quicksort(arr):
     if len(arr) < 1:
         return []
     pivot = arr.pop()
 
-    biglist= []
-    smalllist = []
+    big_list= []
+    small_list = []
     
     for num in arr:
         if num > pivot:
-            biglist.append(num)
+            big_list.append(num)
         else:
-            smalllist.append(num)
+            small_list.append(num)
 
-    return quicksort(biglist) + [pivot] + quicksort(smalllist)
+    return quicksort(small_list) + [pivot] + quicksort(big_list)
 
 snums = quicksort(nums)
-print(len(snums))
 print(snums)
