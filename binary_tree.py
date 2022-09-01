@@ -5,15 +5,15 @@ class leaf:
         self.right = None
 
     def addChild(self, val):
-        if self.data == val:
+        if self.data == val: # checking if we are adding something that's already in the tree.
             return
 
-        if val > self.data:
+        if val > self.data: # if number is higher put it on the right.
             if self.right:
                 self.right.addChild(val)
             else:
                 self.right = leaf(val)
-        else:
+        else:                           # if number is lower it goes on the left.
             if self.left:
                 self.left.addChild(val)
             else:
@@ -23,21 +23,21 @@ class leaf:
         if self.data == val:
             return True
         
-        if val > self.data:
+        if val > self.data: # if number is higher and there are more nodes on the right, check those.
             if self.right:
                 return self.right.search(val)
             else:
                 return False
-        elif val < self.data:
+        elif val < self.data: # check left, if it exists.
             if self.left:
                 return self.left.search(val)
             else:
                 return False
 
 def Tree_builder(values):
-    root = leaf(values[0])
+    root = leaf(values[0]) # root node of the tree.
 
-    for i in range(1, len(values)):
+    for i in range(1, len(values)): # adds each node to the root node. starts from 2nd in array because 1st was used as root.
         root.addChild(values[i])
     
     return root

@@ -21,5 +21,6 @@ for index, i in enumerate(points):
         if area > biggest:
             biggest = area
             biggest_set = [i, points[k]]
-        print(biggest)
-        print(biggest_set)
+        
+print(biggest)
+print(biggest_set)
